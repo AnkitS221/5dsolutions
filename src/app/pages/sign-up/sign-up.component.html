@@ -1,0 +1,55 @@
+<div class="form-container">
+    <img src="assets\logo_light.png" alt="" class="img-logo">
+    <span>Solutions</span>
+    <div class="form-content">
+        <div class="header">
+           <h1> Sign Up</h1>
+           <h3>To be a member</h3>
+        </div>
+        <form class="form-div" (ngSubmit)="submitClicked()">
+            <div class="row gx-5 gy-4">
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="signupMod.first_name" name="first_name">
+                        <label for="floatingInput">First Name</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="signupMod.last_name" name="last_name">
+                        <label for="floatingPassword">Last Name</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="signupMod.mobile_number" name="mobile_number">
+                        <label for="floatingPassword">Mobile No.</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingPassword" placeholder="name@example.com" [(ngModel)]="signupMod.email" name="email">
+                        <label for="floatingInput">Email-ID</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPassword" placeholder="City" [(ngModel)]="signupMod.city" name="password">
+                        <label for="floatingPassword">City</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="signupMod.password" name="password">
+                        <label for="floatingPassword">Enter Password</label>
+                      </div>
+                </div>
+                <div class="col-12 submit-button">
+                    <button type="submit" class="btn">Sign In</button>
+                    <span>Already a member? <b><a routerLink="/sign-in">Sign In</a></b></span>
+                </div>
+              </div>
+              
+          </form>
+    </div>
+</div>
