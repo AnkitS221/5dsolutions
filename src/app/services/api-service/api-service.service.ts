@@ -35,6 +35,6 @@ export class ApiServiceService {
   }
 
   public deleteMomentDetails(id: any) {
-    return this.httpClient.get(this.apiString + 'deleteMoment/' + id);
+    return this.httpClient.delete(this.apiString + 'deleteMoment/' + id);
   }
 }

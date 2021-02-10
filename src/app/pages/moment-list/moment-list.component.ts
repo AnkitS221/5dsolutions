@@ -81,7 +81,6 @@ export class MomentListComponent implements OnInit {
     }, 2000);
     this.apiSrv.getMomentDetails().subscribe((result: any) => {
       this.listOfData = result.data;
-      console.log(this.listOfData);
     });
   }
 
@@ -97,6 +96,9 @@ export class MomentListComponent implements OnInit {
           this.apiSrv.deleteMomentDetails(id).subscribe(
             (result) => {
               swalDefine('Moment Deleted!');
+              this.apiSrv.getMomentDetails().subscribe((result: any) => {
+                this.listOfData = result.data;
+              });
             },
             (err) => {
               console.log(err);
