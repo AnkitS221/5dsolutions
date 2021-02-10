@@ -101,7 +101,7 @@ export class MomentListComponent implements OnInit {
               });
             },
             (err) => {
-              console.log(err);
+              this.alertSrv.errorAlert(err.error.message);
             }
           );
           break;

@@ -13,4 +13,8 @@ export class LocalStorageService {
   getUserData() {
     return localStorage.getItem('userData');
   }
+
+  removeUserData() {
+    return localStorage.removeItem('userData');
+  }
 }

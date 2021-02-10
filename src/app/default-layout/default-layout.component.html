@@ -29,28 +29,18 @@
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
-        <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" style="margin-left: 70vw;">
+        <nz-avatar nzSize="large" nzIcon="user" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"
+          style="margin-left: 70vw;"></nz-avatar>
+
+        <!-- <a >
           Click me
           <i nz-icon nzType="down"></i>
-        </a>
+        </a> -->
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item>1st menu item</li>
-            <li nz-menu-item>2nd menu item</li>
-            <li nz-menu-divider></li>
-            <li nz-menu-item nzDisabled>disabled menu item</li>
-            <li nz-submenu nzTitle="sub menu">
-              <ul>
-                <li nz-menu-item>3rd menu item</li>
-                <li nz-menu-item>4th menu item</li>
-              </ul>
-            </li>
-            <li nz-submenu nzDisabled nzTitle="disabled sub menu">
-              <ul>
-                <li nz-menu-item>3rd menu item</li>
-                <li nz-menu-item>4th menu item</li>
-              </ul>
-            </li>
+            <li nz-menu-item>Profile</li>
+            <li nz-menu-item>Settings</li>
+            <li nz-menu-item (click)="logout()">Logout</li>
           </ul>
         </nz-dropdown-menu>
       </div>

@@ -25,6 +25,7 @@ import { DndDirective } from './directives/dnd.directive';
 import { ProgressComponent } from './progress/progress.component';
 import { TagInputModule } from 'ngx-chips';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     NzIconModule,
     NzDropDownModule,
     NzTableModule,
+    NzAvatarModule,
     NzFormModule,
     NzInputModule,
     ReactiveFormsModule,
