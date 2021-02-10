@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DndDirective } from './directives/dnd.directive';
 import { ProgressComponent } from './progress/progress.component';
 import { TagInputModule } from 'ngx-chips';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { TagInputModule } from 'ngx-chips';
     ReactiveFormsModule,
     HttpClientModule,
     TagInputModule,
+    NgxUiLoaderModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,

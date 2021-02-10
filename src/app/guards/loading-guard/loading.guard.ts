@@ -23,8 +23,6 @@ export class LoadingGuard implements CanActivate {
     | boolean
     | UrlTree {
     let userDetails = this.localSrv.getUserData();
-    console.log(userDetails);
-
     if (!userDetails) {
       this.router.navigate(['sign-up']);
       return false;

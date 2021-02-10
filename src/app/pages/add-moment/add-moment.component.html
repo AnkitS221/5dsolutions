@@ -12,18 +12,18 @@
 			<div class="col-12">
 				<div class="form-group">
 					<label for="exampleFormControlTextarea1">Comments</label>
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-						[(ngModel)]="comment"></textarea>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)]="comment"
+						name="comment"></textarea>
 				</div>
 			</div>
 			<div class="col-12">
 				<label for="floatingInput">Tags</label>
-				<tag-input class="form-control" [(ngModel)]="items" (onSelect)="onSelect($event)" [addOnBlur]="true"
-					[clearOnBlur]="true">
+				<tag-input class="form-control" [(ngModel)]="items" (onAdd)="onSelect($event)" [addOnBlur]="true"
+					[clearOnBlur]="true" name="items">
 				</tag-input>
 			</div>
 		</div>
-		<div class="row gx-5 gy-4" style="margin-top: 2vw;">
+		<div class="row gx-5 gy-4" style="margin-top: 0.4vw;">
 			<div class="col-6">
 				<div class="files-list">
 					<span *ngIf="files.length > 0">Uploading</span>

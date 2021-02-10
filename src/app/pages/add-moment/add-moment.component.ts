@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert/alert.service';
+import { ApiServiceService } from 'src/app/services/api-service/api-service.service';
 
 @Component({
   selector: 'app-add-moment',
@@ -9,8 +12,13 @@ export class AddMomentComponent implements OnInit {
   title: any;
   comment: any;
   files: any[] = [];
-  items = ['Javascript', 'Typescript'];
-  constructor() {}
+  items: any[] = [];
+  tags: any[] = [];
+  constructor(
+    private apiSrv: ApiServiceService,
+    private alertSrv: AlertService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -88,5 +96,34 @@ export class AddMomentComponent implements OnInit {
     console.log('tag selected: value is ' + item);
   }
 
-  submitMoment() {}
+  submitMoment() {
+    for (let result of this.items) {
+      this.tags.push(result.value);
+    }
+    let momentPayload = {
+      title: this.title,
+      comment: this.comment,
+      tags: this.tags,
+    };
+    if (
+      this.title != undefined &&
+      this.comment != undefined &&
+      this.items.length > 0
+    ) {
+      if (this.files.length > 0) {
+        this.apiSrv.postMomentDetails(momentPayload, this.files[0]).subscribe(
+          (result) => {
+            this.router.navigate(['moment-list']);
+          },
+          (err) => {
+            this.alertSrv.errorAlert(err.error.message[0]);
+          }
+        );
+      } else {
+        this.alertSrv.errorAlert('Please insert images for the Moments');
+      }
+    } else {
+      this.alertSrv.errorAlert('Please enter all fields');
+    }
+  }
 }
