@@ -16,7 +16,7 @@ export class AlertService {
   }
 
   confirmationAlert(message: any) {
-    return swalDefine(message, {
+    swalDefine(message, {
       buttons: {
         cancel: 'No',
         defeat: 'Yes',
