@@ -14,4 +14,22 @@ export class AlertService {
   errorAlert(message: any) {
     swalDefine('Error', message, 'error');
   }
+
+  confirmationAlert(message: any) {
+    return swalDefine(message, {
+      buttons: {
+        cancel: 'No',
+        defeat: 'Yes',
+      },
+    }).then((value: any) => {
+      switch (value) {
+        case 'defeat':
+          swalDefine('Moment Deleted!');
+          break;
+
+        case 'cancel':
+        //swalDefine('Gotcha!', 'Pikachu was caught!', 'success');
+      }
+    });
+  }
 }

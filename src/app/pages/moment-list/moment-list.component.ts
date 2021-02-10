@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { ApiServiceService } from 'src/app/services/api-service/api-service.service';
+const swalDefine = require('sweetalert');
 interface DataItem {
   title: string;
   tags: number;
@@ -62,7 +64,8 @@ export class MomentListComponent implements OnInit {
   // },
   constructor(
     private apiSrv: ApiServiceService,
-    private ngxService: NgxUiLoaderService
+    private ngxService: NgxUiLoaderService,
+    private alertSrv: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -79,6 +82,31 @@ export class MomentListComponent implements OnInit {
     this.apiSrv.getMomentDetails().subscribe((result: any) => {
       this.listOfData = result.data;
       console.log(this.listOfData);
+    });
+  }
+
+  deleteItem(id: any) {
+    swalDefine('Are you sure you want to delete this record?', {
+      buttons: {
+        cancel: 'No',
+        defeat: 'Yes',
+      },
+    }).then((value: any) => {
+      switch (value) {
+        case 'defeat':
+          this.apiSrv.deleteMomentDetails(id).subscribe(
+            (result) => {
+              swalDefine('Moment Deleted!');
+            },
+            (err) => {
+              console.log(err);
+            }
+          );
+          break;
+
+        case 'cancel':
+        //swalDefine('Gotcha!', 'Pikachu was caught!', 'success');
+      }
     });
   }
 }
