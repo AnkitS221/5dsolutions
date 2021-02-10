@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import swalDefine from 'sweetalert';
+const swalDefine = require('sweetalert');
 
 @Injectable({
   providedIn: 'root',

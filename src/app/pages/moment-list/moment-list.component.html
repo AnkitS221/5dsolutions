@@ -10,9 +10,9 @@
   <tbody>
     <tr *ngFor="let data of sortTable.data; let i = index">
       <td>{{ i + 1 }}</td>
-      <td><img [src]="'http://localhost:8080/public/moments/' + data.fileName" alt=""></td>
-      <td>{{ data.title }}</td>
-      <td>{{ data.tags.join(",") }}</td>
+      <td><img [src]="'http://localhost:8080/public/moments/' + data?.fileName" alt=""></td>
+      <td>{{ data?.title }}</td>
+      <td>{{ data?.tags.join(",") }}</td>
       <td><i nz-icon nzType="edit" nzTheme="outline"></i><i nz-icon nzType="delete" nzTheme="outline"></i></td>
     </tr>
   </tbody>

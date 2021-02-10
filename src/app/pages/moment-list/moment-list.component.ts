@@ -60,7 +60,7 @@ export class MomentListComponent implements OnInit {
     //   priority: 1,
     // },
   ];
-  listOfData = [];
+  listOfData: any[] = [];
   // {
   //   name: 'John Brown',
   //   chinese: 98,
