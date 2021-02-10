@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ApiServiceService } from 'src/app/services/api-service/api-service.service';
 interface DataItem {
-  name: string;
-  chinese: number;
-  math: number;
-  english: number;
+  title: string;
+  tags: number;
 }
 @Component({
   selector: 'app-moment-list',
@@ -16,27 +14,22 @@ export class MomentListComponent implements OnInit {
   listOfColumn = [
     {
       title: 'Sr. No',
-      compare: null,
       priority: false,
     },
     {
       title: 'Image',
-      compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
       priority: 3,
     },
     {
       title: 'Title',
-      compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
-      priority: 3,
+      priority: 2,
     },
     {
       title: 'Tags',
-      compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
-      priority: 3,
+      priority: 1,
     },
     {
       title: 'Action',
-      compare: (a: DataItem, b: DataItem) => a.chinese - b.chinese,
       priority: 3,
     },
     // {
