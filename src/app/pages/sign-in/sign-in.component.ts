@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { ApiServiceService } from 'src/app/services/api-service/api-service.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
@@ -14,7 +15,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private router: Router,
     private apiSrv: ApiServiceService,
-    private localSrv: LocalStorageService
+    private localSrv: LocalStorageService,
+    private alertSrv: AlertService
   ) {}
 
   ngOnInit(): void {}
@@ -30,6 +32,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['add-moment']);
       },
       (err) => {
+        this.alertSrv.errorAlert(err.error.message);
         console.log(err);
       }
     );

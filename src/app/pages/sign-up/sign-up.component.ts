@@ -5,6 +5,7 @@ import { SignUpModule } from './sign-up.module';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,8 @@ export class SignUpComponent implements OnInit {
     private apiServ: ApiServiceService,
     private toastr: ToastrService,
     private router: Router,
-    private localSrv: LocalStorageService
+    private localSrv: LocalStorageService,
+    private alertSrv: AlertService
   ) {}
 
   submitForm(): void {
@@ -42,8 +44,7 @@ export class SignUpComponent implements OnInit {
         this.router.navigate(['sign-in']);
       },
       (error) => {
-        console.log(error.error.message[0]);
-        alert(error.error.message[0]);
+        this.alertSrv.errorAlert(error.error.message[0]);
       }
     );
   }

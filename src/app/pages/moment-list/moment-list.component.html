@@ -3,7 +3,7 @@
 <nz-table #sortTable [nzData]="listOfData" nzTableLayout="fixed">
   <thead>
     <tr>
-      <th *ngFor="let column of listOfColumn" [nzSortPriority]="column.priority">{{
+      <th *ngFor="let column of listOfColumn">{{
         column.title }}</th>
     </tr>
   </thead>
